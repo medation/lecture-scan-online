@@ -16,13 +16,14 @@ import { App } from 'ionic-angular';
 export class Dashboard {
 
     mangas = [];
- 
+    item : any;
+
     constructor(    public app: App, 
                     public utility: Utility,
                     public lectureApiService : LectureApiService,
                     public navParams: NavParams ) 
     { 
-
+        this.item = {  title :"Search",  category:"null",  statue:"null", url: "null", resume:"null", chapitres: "null", nbrTome : 0 };
     }
 
     ionViewDidLoad() {
@@ -38,15 +39,34 @@ export class Dashboard {
         this.lectureApiService.getMangas().subscribe(data => {
         
             this.mangas = data;
-
+             
            //Hide loading
             setTimeout(function(){
                 loading.dismiss();
             },1000); 
 
         });
-    
+        
     }
+
+    getItems(ev: any) {
+        // Reset items back to all of the items
+
+        // set val to the value of the searchbar
+        let val = ev.target.value;
+
+        // if the value is an empty string don't filter the items
+        if (val && val.trim() != '') {
+            for(var i = 0;i<this.mangas.length;i++) { 
+                if(this.mangas[i].title == val)
+                {
+                    this.item = this.mangas[i];
+                }
+            }
+        }
+        
+    }
+
 
     goTo(item){
         

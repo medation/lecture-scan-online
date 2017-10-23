@@ -3,12 +3,19 @@ page-dashboard {
 
 
     .content{
-        background-color: #000000;
+        background-color: color($colors, light);
         
     }
 
     .item{
-        background-color: #353535;
+        background-color: color($colors, secondary);
+    }
+
+    .itemSearch{
+        background-color: color($colors, awesome);
     }
     
+    .list-header{
+        background-color: color($colors, light);
+    }
 }

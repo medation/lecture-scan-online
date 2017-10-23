@@ -2,20 +2,12 @@
 page-manga {
     
     .content{
-        background-color: #000000;
+        background-color: color($colors, light);
         
     }
 
-    .btnsrc{
-        margin-top: 10px;
-        //background-color: #353535;
-        background-color: #000000;
-
+    .item{
+        background-color: color($colors, secondary);
     }
-    .btncat{
-        margin-top: 10px;
-        //background-color: #353535;
-        background-color: #353535;
 
-    }
 }

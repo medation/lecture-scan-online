@@ -10,13 +10,22 @@
 
  <ion-content class="card-background-page">
     
+    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+
+    <ion-item [hidden]="item.title == 'Search'" (click)="goTo(item)" class="itemSearch">
+            Resultat recherche : 
+            <h2 style="color : white">{{item.title}}</h2>
+            <h3 style="float : left;">{{item.category}}</h3>
+            <h3 style="float : right;">{{item.statue}}</h3>
+
+    </ion-item>
     <ion-list>
 
         <ion-item *ngFor="let manga of mangas" [hidden]="mangas.count == 0" (click)="goTo(manga)" >
             
             <h2 style="color : white">{{manga.title}}</h2>
-            <h3 style="float : left; color : #aaaaaa">{{manga.category}}</h3>
-            <h3 style="float : right; color : #aaaaaa">{{manga.statue}}</h3>
+            <h3 style="float : left; color : #111111">{{manga.category}}</h3>
+            <h3 style="float : right; color : #111111">{{manga.statue}}</h3>
 
         </ion-item>
 

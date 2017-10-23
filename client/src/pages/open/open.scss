@@ -1,7 +1,7 @@
 page-open{
 
     .content{
-        background-color: white;
+        background-color: color($colors, primary);
     }
     .image{
         position: absolute;
@@ -10,6 +10,7 @@ page-open{
     }
     .icon{
         position: absolute;
+        color : color($colors, light);
         top: 34%;
         left : 27%;
         font-size: 190px;

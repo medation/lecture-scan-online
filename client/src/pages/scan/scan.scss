@@ -2,11 +2,12 @@
 page-manga {
     
     .content{
-        background-color: #000000;
+        background-color: color($colors, light);
         
     }
+        
 
-    .slide{
-        background-color: #353535;
+    .slides{
+        background-color: color($colors, secondary);
     }
 }
