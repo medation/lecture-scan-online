@@ -1,0 +1,40 @@
+{
+    "sources": [
+			
+			{
+				"id": "1",
+				"name": "Telquel",
+				"source": "telquel",
+				"categorie":["Politique","Monde","Economie","Societe","Sport"],
+				"banner": "assets/icon-source/telquel.jpg"
+			},
+			{
+				"id": "2",
+				"name": "Medi1Tv",
+				"source": "Medi1Tv",
+				"categorie":["Cat1","Cat2"],
+				"banner": "assets/icon-source/Medi1Tv.jpg"
+        	},
+			{
+				"id": "3",
+				"name": "Science et vie",
+				"source": "Medi1Tv",
+				"categorie":["S op 3","S op 4"],
+				"banner": "assets/icon-source/Medi1Tv.jpg"
+        	}	
+	],
+	
+	"activities": [
+			
+			{
+				"id": "1",
+				"name": "news",
+				"banner": "assets/icon-activity/news.jpg"
+			},
+			{
+				"id": "2",
+				"name": "",
+				"banner": ""
+			}		
+    ]
+}

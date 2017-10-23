@@ -1,0 +1,26 @@
+<ion-header>
+    <ion-navbar no-border-bottom>
+        <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title>{{manga.title}}</ion-title>
+    </ion-navbar>
+</ion-header>
+ 
+<ion-content>
+ 
+    <ion-list >
+        
+        <ion-item class="btnsrc"  *ngFor="let chapitre of chapitres" (click)="lectureChapitre(chapitre)">
+
+
+            <h2 style="color : white;">{{chapitre.title}}</h2>
+
+        </ion-item >
+        
+    </ion-list>
+    
+ 
+</ion-content>
+ 
+

@@ -1,0 +1,20 @@
+page-open{
+
+    .content{
+        background-color: white;
+    }
+    .image{
+        position: absolute;
+        top: 35%;
+        left : 35%;
+    }
+    .icon{
+        position: absolute;
+        top: 34%;
+        left : 27%;
+        font-size: 190px;
+    }
+    .no-scroll .scroll-content{
+        overflow: hidden;
+    }
+}

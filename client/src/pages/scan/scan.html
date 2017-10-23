@@ -1,0 +1,23 @@
+<ion-header>
+    <ion-navbar no-border-bottom>
+        <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title> {{chapitre.title}} </ion-title>
+    </ion-navbar>
+</ion-header>
+ 
+<ion-content>
+    
+    <ion-slides pager >
+
+        <ion-slide *ngFor="let scan of pages">
+            <img [src]="scan.urlToImage">
+        </ion-slide>
+
+    </ion-slides>
+    
+ 
+</ion-content>
+ 
+
