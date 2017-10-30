@@ -1,3 +1,5 @@
+import { MangaModel } from './../../model/manga';
+import { User } from './../../model/user';
 import { Scan } from './../scan/scan';
 import { LectureApiService } from './../../services/lectureapi.service';
 
@@ -20,6 +22,10 @@ export class Manga {
     chapitres = [];
     manga : any;
     link : String;
+    resume : any;
+    choix : any;
+    user : User;
+    mangaModel : MangaModel = new MangaModel();
 
     constructor(public app: App,  
                 public utility: Utility,
@@ -27,8 +33,12 @@ export class Manga {
                 public lectureApiService : LectureApiService,
                 public actionSheetCtrl: ActionSheetController) {
  
-        this.manga = navParams.data;
-        this.link = this.manga.url;            
+        this.choix = "infosManga";
+        this.manga = navParams.data.item;
+        this.link = this.manga.url;
+        this.user = navParams.data.user;
+        this.mangaModel.title = this.manga.title;
+        this.mangaModel.id = "50";
     }
 
     ionViewDidLoad() {
@@ -43,7 +53,8 @@ export class Manga {
 
         this.lectureApiService.getManga(this.link).subscribe(data => {
         
-            this.chapitres = data;
+            this.resume = data.resume;
+            this.chapitres = data.chapitres;
 
            //Hide loading
             setTimeout(function(){
@@ -56,7 +67,11 @@ export class Manga {
 
     lectureChapitre(item) {
         let nav = this.app.getRootNav();
-        nav.push(Scan,item);
+        nav.push(Scan,{
+            "item" : item,
+            "manga" : this.mangaModel,
+            "user" : this.user
+        });
     }
 
 }

@@ -1,11 +1,23 @@
 
 page-manga {
     
-    .content{
+    .segment{
         background-color: color($colors, light);
-        
     }
 
+    .segment-button{
+        background-color: color($colors, secondary);
+    } 
+
+    .card{
+        background-color: color($colors, secondary);
+        border: 0px;
+    }
+    .content{
+        background-color: color($colors, secondary);
+        
+    }
+    
     .item{
         background-color: color($colors, secondary);
     }

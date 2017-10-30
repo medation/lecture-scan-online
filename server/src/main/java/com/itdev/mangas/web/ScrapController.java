@@ -67,7 +67,7 @@ public class ScrapController {
 	
 	@RequestMapping(value = "infosManga/{url}", method = RequestMethod.GET)
 	@CrossOrigin(origins = {"http://localhost:8100","file://"})
-	public ResponseEntity<List<Chapitre>> infosManga(@PathVariable String url) throws IOException {
+	public ResponseEntity<Manga> infosManga(@PathVariable String url) throws IOException {
 		
 		
 		String baseUrl = "http://www.japscan.com/mangas/";
@@ -96,11 +96,11 @@ public class ScrapController {
 		
 		manga.setChapitres(chapitres);
 		
-		if(chapitres.equals(null)){
-            return new ResponseEntity<List<Chapitre>>(HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND
+		if(manga.equals(null)){
+            return new ResponseEntity<Manga>(HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND
         }
 		
-        return new ResponseEntity<List<Chapitre>>(chapitres, HttpStatus.OK);
+        return new ResponseEntity<Manga>(manga, HttpStatus.OK);
 		
 	}
 	

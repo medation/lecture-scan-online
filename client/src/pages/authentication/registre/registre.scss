@@ -1,0 +1,26 @@
+page-registre {
+
+    .title {
+        font-family: 'Angelina';
+        text-align: center;
+        width: 100%;
+        height: 20vh;
+        line-height: 20vh;
+        font-size: 5rem;
+        font-weight: 500;
+        color: color($colors, primary);;
+    }
+
+    ion-footer {
+        height: 47px;
+        .toolbar-background {
+        background: transparent !important;
+        background-color: transparent !important;
+        }
+        .footer {
+        text-align: center;
+        background: rgba(255, 255, 255, .06);
+        min-height: 47px;
+        }
+    }
+}

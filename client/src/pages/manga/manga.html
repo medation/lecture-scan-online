@@ -5,22 +5,41 @@
     </button>
         <ion-title>{{manga.title}}</ion-title>
     </ion-navbar>
+
+    <ion-toolbar no-border-top>
+        <ion-segment [(ngModel)]="choix">
+            <ion-segment-button value="infosManga">
+                Infos mangas
+            </ion-segment-button>
+            <ion-segment-button value="listeChapitre">
+                Liste chapitres
+            </ion-segment-button>
+        </ion-segment>
+    </ion-toolbar>
+
 </ion-header>
  
 <ion-content>
 
-    <ion-list >
+    <div [ngSwitch]="choix">
+
         
-        <ion-item class="btnsrc"  *ngFor="let chapitre of chapitres" (click)="lectureChapitre(chapitre)">
+        <ion-card *ngSwitchCase="'infosManga'">
 
+            <ion-card-content class="btnsrc">
+                <h2 style="color : white;">{{resume}}</h2>
+            </ion-card-content >
+            
+        </ion-card>
 
-            <h2 style="color : white;">{{chapitre.title}}</h2>
-
-        </ion-item >
-        
-    </ion-list>
-    
- 
+        <ion-list *ngSwitchCase="'listeChapitre'">
+            
+            <ion-item class="btnsrc"  *ngFor="let chapitre of chapitres" (click)="lectureChapitre(chapitre)">
+                <h2 style="color : white;">{{chapitre.title}}</h2>
+            </ion-item >
+            
+        </ion-list>
+    </div>
 </ion-content>
  
 

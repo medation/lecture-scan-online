@@ -1,14 +1,13 @@
+import { Dashboard } from './../pages/dashboard/dashboard';
+import { Open } from './../pages/open/open';
+import { Registre } from './../pages/authentication/registre/registre';
+import { Login } from './../pages/authentication/login/login';
 import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { Dashboard } from '../pages/dashboard/dashboard';
-
 import { HomePage } from '../pages/home/home';
-
-import { Open } from '../pages/open/open';
-
 @Component({
   templateUrl: 'app.html'
 })
@@ -24,4 +23,5 @@ export class MyApp {
     });
   }
 }
+
 

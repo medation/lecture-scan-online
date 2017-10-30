@@ -1,3 +1,4 @@
+import { Registre } from './../authentication/registre/registre';
 import { Dashboard } from './../dashboard/dashboard';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
@@ -25,7 +26,7 @@ export class Open {
 
     let nav = this.app.getRootNav();
     setTimeout(function(){
-        nav.push(Dashboard);
+        nav.push(Registre);
     },2000);
   
   }

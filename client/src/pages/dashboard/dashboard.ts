@@ -1,3 +1,5 @@
+import { UserService } from './../../services/user.service';
+import { User } from './../../model/user';
 import { Manga } from './../manga/manga';
 import { LectureApiService } from './../../services/lectureapi.service';
 
@@ -17,13 +19,19 @@ export class Dashboard {
 
     mangas = [];
     item : any;
-
+    user : User;
+    email : string;
     constructor(    public app: App, 
                     public utility: Utility,
                     public lectureApiService : LectureApiService,
+                    public userService : UserService,
                     public navParams: NavParams ) 
     { 
         this.item = {  title :"Search",  category:"null",  statue:"null", url: "null", resume:"null", chapitres: "null", nbrTome : 0 };
+    
+        this.user = navParams.data;
+        this.email = this.user.email;
+        
     }
 
     ionViewDidLoad() {
@@ -46,6 +54,8 @@ export class Dashboard {
             },1000); 
 
         });
+
+
         
     }
 
@@ -71,7 +81,10 @@ export class Dashboard {
     goTo(item){
         
         let nav = this.app.getRootNav();
-        nav.push(Manga, item);
+        nav.push(Manga, {
+            "item" : item,
+            "user" : this.user
+        });
 
     }
 

@@ -1,9 +1,12 @@
 <ion-header>
     <ion-navbar no-border-bottom>
         <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
+            <ion-icon name="menu"></ion-icon>
+        </button>   
         <ion-title> {{chapitre.title}} </ion-title>
+        <button ion-button icon-right color="light" (click)="sauvegarderManga()">
+            <ion-icon name="bookmark"></ion-icon>
+        </button>
     </ion-navbar>
 </ion-header>
  
