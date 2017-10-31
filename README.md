@@ -4,13 +4,13 @@
 <!-- ![](open.png)![](registre.png)![](login.png)![](loading.png)![](mangas.png)![](manga.png)![](scan.png) -->
 
 <p align="center">
-	<img src="open.png" width="350"/>
-	<img src="registre.png" width="350"/>
-	<img src="login.png" width="350"/>
-	<img src="loading.png" width="350"/>
-	<img src="mangas.png" width="350"/>
-	<img src="manga.png" width="350"/>
-	<img src="scan.png" width="350"/>
+	<img src="open.png" width="10%"/>
+	<img src="registre.png" width="10%"/>
+	<img src="login.png" width="10%"/>
+	<img src="loading.png" width="10%"/>
+	<img src="mangas.png" width="10%"/>
+	<img src="manga.png" width="10%"/>
+	<img src="scan.png" width="10%"/>
 </p>
 
 ## Installation
