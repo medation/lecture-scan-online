@@ -1,7 +1,7 @@
 # Mangas lecture en ligne
 > An Ionic - Angular application with a RESTFul webserver based on Spring
 
-![](open.png)(registre.png)(login.png)(loading.png)(mangas.png)(manga.png)(scan.png)
+![](open.png)[](registre.png)[](login.png)[](loading.png)[](mangas.png)[](manga.png)[](scan.png)
 
 ## Installation
 
