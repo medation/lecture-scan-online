@@ -25512,6 +25512,10 @@ ion-navbar.toolbar {
   min-height: calc(46px + constant(safe-area-inset-top));
 }
 
+page-login .no-scroll .scroll-content {
+  overflow: hidden !important;
+}
+
 page-login .signin-button {
   background-color: #1a684a;
 }
@@ -25547,6 +25551,10 @@ page-login ion-footer .footer {
   text-align: center;
   background: rgba(255, 255, 255, 0.06);
   min-height: 47px;
+}
+
+page-registre .no-scroll .scroll-content {
+  overflow: hidden !important;
 }
 
 page-registre .title {
@@ -25632,6 +25640,10 @@ page-open .icon {
 
 page-open .no-scroll .scroll-content {
   overflow: hidden;
+}
+
+page-manga .no-scroll .scroll-content {
+  overflow: hidden !important;
 }
 
 page-manga .content {

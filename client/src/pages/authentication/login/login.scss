@@ -1,5 +1,11 @@
 page-login {
 
+    .no-scroll {
+        .scroll-content {
+            overflow: hidden !important;
+        }
+    }
+
     .signin-button{
         background-color: #1a684a;
     }

@@ -1,6 +1,12 @@
 
 page-manga {
-    
+
+    .no-scroll {
+        .scroll-content {
+            overflow: hidden !important;
+        }
+    } 
+       
     .content{
         background-color: color($colors, light);
         

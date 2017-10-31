@@ -6,7 +6,7 @@ webpackJsonp([0],{
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Registre; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__login_login__ = __webpack_require__(237);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__home_home__ = __webpack_require__(263);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__home_home__ = __webpack_require__(264);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_forms__ = __webpack_require__(22);
@@ -70,7 +70,7 @@ var Registre = (function () {
 }());
 Registre = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["n" /* Component */])({
-        selector: 'page-registre',template:/*ion-inline-start:"/home/Med/Documents/Projet/SpringBoot/Spring boot + Angular/MangasApp/client/src/pages/authentication/registre/registre.html"*/'\n\n<ion-content padding>\n\n  <div class="title">Mangas</div>\n\n  <div padding>\n    <form [formGroup]="form" (ngSubmit)="onSubmit()">\n\n      <p ion-text color="danger" *ngIf="hasError">{{errorMessage}}</p>\n\n      <ion-item>\n        <ion-input type="email" placeholder="Email" formControlName="email"></ion-input>\n      </ion-item>\n\n      <ion-item>\n        <ion-input type="password" placeholder="Mot de passe" formControlName="password"></ion-input>\n      </ion-item>\n\n      <ion-item>\n        <ion-input type="text" placeholder="First name" formControlName="firstname"></ion-input>\n      </ion-item>\n\n      <ion-item>\n        <ion-input type="text" placeholder="Last name" formControlName="lastname"></ion-input>\n      </ion-item>\n\n      <button ion-button block  color="primary"  \n        type="submit" [disabled]="!form.valid">\n        Inscription\n      </button>\n      \n    </form>    \n  </div>\n\n</ion-content>\n\n<ion-footer>\n  <ion-toolbar class="footer">\n    <div (click)="goToLogin()">\n      <span>Vous avez déja un compte ? <strong>Connecte-toi maintenant</strong>.</span>\n    </div>\n  </ion-toolbar>\n</ion-footer>'/*ion-inline-end:"/home/Med/Documents/Projet/SpringBoot/Spring boot + Angular/MangasApp/client/src/pages/authentication/registre/registre.html"*/
+        selector: 'page-registre',template:/*ion-inline-start:"/home/Med/Documents/Projet/SpringBoot/Spring boot + Angular/MangasApp/client/src/pages/authentication/registre/registre.html"*/'\n\n<ion-content padding class="no-scroll">\n\n  <div class="title">Mangas</div>\n\n  <div padding>\n    <form [formGroup]="form" (ngSubmit)="onSubmit()">\n\n      <p ion-text color="danger" *ngIf="hasError">{{errorMessage}}</p>\n\n      <ion-item>\n        <ion-input type="email" placeholder="Email" formControlName="email"></ion-input>\n      </ion-item>\n\n      <ion-item>\n        <ion-input type="password" placeholder="Mot de passe" formControlName="password"></ion-input>\n      </ion-item>\n\n      <ion-item>\n        <ion-input type="text" placeholder="First name" formControlName="firstname"></ion-input>\n      </ion-item>\n\n      <ion-item>\n        <ion-input type="text" placeholder="Last name" formControlName="lastname"></ion-input>\n      </ion-item>\n\n      <button ion-button block  color="primary"  \n        type="submit" [disabled]="!form.valid">\n        Inscription\n      </button>\n      \n    </form>    \n  </div>\n\n</ion-content>\n\n<ion-footer>\n  <ion-toolbar class="footer">\n    <div (click)="goToLogin()">\n      <span>Vous avez déja un compte ? <strong>Connecte-toi maintenant</strong>.</span>\n    </div>\n  </ion-toolbar>\n</ion-footer>'/*ion-inline-end:"/home/Med/Documents/Projet/SpringBoot/Spring boot + Angular/MangasApp/client/src/pages/authentication/registre/registre.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_5__services_auth_service__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormBuilder */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["b" /* App */]])
 ], Registre);
@@ -238,16 +238,20 @@ var Login = (function () {
                     _this.hasError = true;
             }
         });
+        this.authService.getCurrentUser(this.model)
+            .subscribe(function (user) {
+            _this.currentUser = user;
+        });
     };
     Login.prototype.goToRegistre = function () {
         var nav = this.app.getRootNav();
-        nav.push(__WEBPACK_IMPORTED_MODULE_1__registre_registre__["a" /* Registre */], this.model);
+        nav.push(__WEBPACK_IMPORTED_MODULE_1__registre_registre__["a" /* Registre */], this.currentUser);
     };
     return Login;
 }());
 Login = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["n" /* Component */])({
-        selector: 'page-login',template:/*ion-inline-start:"/home/Med/Documents/Projet/SpringBoot/Spring boot + Angular/MangasApp/client/src/pages/authentication/login/login.html"*/'\n\n<ion-content padding>\n\n  <div class="title">Mangas</div>\n  <div padding>\n    <form [formGroup]="form" (ngSubmit)="onSubmit()">\n      <p ion-text color="danger" *ngIf="hasError">{{errorMessage}}</p>\n\n      <ion-item>\n        <ion-input type="email" placeholder="Email" formControlName="email"></ion-input>\n      </ion-item>\n\n      <ion-item>\n        <ion-input type="password" placeholder="Mot de passe" formControlName="password"></ion-input>\n      </ion-item>\n\n      <button ion-button block  class="signin-button" type="submit" [disabled]="!form.valid">\n        Connexion\n      </button>\n\n    </form>    \n  </div>\n\n\n</ion-content>\n\n<ion-footer>\n  <ion-toolbar class="footer">\n    <div (click)="goToRegistre()">\n      <span>Pas encore de compte ? <strong>Inscrit-toi dès maintenant</strong>.</span>\n    </div>\n  </ion-toolbar>\n</ion-footer>\n'/*ion-inline-end:"/home/Med/Documents/Projet/SpringBoot/Spring boot + Angular/MangasApp/client/src/pages/authentication/login/login.html"*/
+        selector: 'page-login',template:/*ion-inline-start:"/home/Med/Documents/Projet/SpringBoot/Spring boot + Angular/MangasApp/client/src/pages/authentication/login/login.html"*/'\n\n<ion-content padding class="no-scroll">\n\n  <div class="title">Mangas</div>\n  <div padding>\n    <form [formGroup]="form" (ngSubmit)="onSubmit()">\n      <p ion-text color="danger" *ngIf="hasError">{{errorMessage}}</p>\n\n      <ion-item>\n        <ion-input type="email" placeholder="Email" formControlName="email"></ion-input>\n      </ion-item>\n\n      <ion-item>\n        <ion-input type="password" placeholder="Mot de passe" formControlName="password"></ion-input>\n      </ion-item>\n\n      <button ion-button block  class="signin-button" type="submit" [disabled]="!form.valid">\n        Connexion\n      </button>\n\n    </form>    \n  </div>\n\n\n</ion-content>\n\n<ion-footer>\n  <ion-toolbar class="footer">\n    <div (click)="goToRegistre()">\n      <span>Pas encore de compte ? <strong>Inscrit-toi dès maintenant</strong>.</span>\n    </div>\n  </ion-toolbar>\n</ion-footer>\n'/*ion-inline-end:"/home/Med/Documents/Projet/SpringBoot/Spring boot + Angular/MangasApp/client/src/pages/authentication/login/login.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_5__services_auth_service__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormBuilder */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["b" /* App */]])
 ], Login);
@@ -261,11 +265,12 @@ Login = __decorate([
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Dashboard; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__manga_manga__ = __webpack_require__(239);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_lectureapi_service__ = __webpack_require__(80);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_utility__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_user_service__ = __webpack_require__(239);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__manga_manga__ = __webpack_require__(240);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_lectureapi_service__ = __webpack_require__(80);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_utility__ = __webpack_require__(81);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -281,15 +286,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var Dashboard = (function () {
-    function Dashboard(app, utility, lectureApiService, navParams) {
+    function Dashboard(app, utility, lectureApiService, userService, navParams) {
         this.app = app;
         this.utility = utility;
         this.lectureApiService = lectureApiService;
+        this.userService = userService;
         this.navParams = navParams;
         this.mangas = [];
         this.item = { title: "Search", category: "null", statue: "null", url: "null", resume: "null", chapitres: "null", nbrTome: 0 };
         this.user = navParams.data;
+        this.email = this.user.email;
     }
     Dashboard.prototype.ionViewDidLoad = function () {
         this.app.setTitle('Accueil');
@@ -323,7 +331,7 @@ var Dashboard = (function () {
     };
     Dashboard.prototype.goTo = function (item) {
         var nav = this.app.getRootNav();
-        nav.push(__WEBPACK_IMPORTED_MODULE_0__manga_manga__["a" /* Manga */], {
+        nav.push(__WEBPACK_IMPORTED_MODULE_1__manga_manga__["a" /* Manga */], {
             "item": item,
             "user": this.user
         });
@@ -331,13 +339,14 @@ var Dashboard = (function () {
     return Dashboard;
 }());
 Dashboard = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["n" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["n" /* Component */])({
         selector: 'page-dashboard',template:/*ion-inline-start:"/home/Med/Documents/Projet/SpringBoot/Spring boot + Angular/MangasApp/client/src/pages/dashboard/dashboard.html"*/'<ion-header>\n    <ion-navbar >\n        <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n        <ion-title>Liste mangas {{email}}</ion-title>\n    </ion-navbar>\n</ion-header>\n\n\n <ion-content class="card-background-page">\n    \n    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>\n\n    <ion-item [hidden]="item.title == \'Search\'" (click)="goTo(item)" class="itemSearch">\n            Resultat recherche : \n            <h2 style="color : white">{{item.title}}</h2>\n            <h3 style="float : left;">{{item.category}}</h3>\n            <h3 style="float : right;">{{item.statue}}</h3>\n\n    </ion-item>\n    <ion-list>\n\n        <ion-item *ngFor="let manga of mangas" [hidden]="mangas.count == 0" (click)="goTo(manga)" >\n            \n            <h2 style="color : white">{{manga.title}}</h2>\n            <h3 style="float : left; color : #111111">{{manga.category}}</h3>\n            <h3 style="float : right; color : #111111">{{manga.statue}}</h3>\n\n        </ion-item>\n\n    </ion-list>\n\n    <ion-list-header [hidden]="mangas.length > 0">\n        Pas de catégorie trouvée.\n    </ion-list-header>\n\n\n</ion-content>\n\n'/*ion-inline-end:"/home/Med/Documents/Projet/SpringBoot/Spring boot + Angular/MangasApp/client/src/pages/dashboard/dashboard.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["b" /* App */],
-        __WEBPACK_IMPORTED_MODULE_4__providers_utility__["a" /* Utility */],
-        __WEBPACK_IMPORTED_MODULE_1__services_lectureapi_service__["a" /* LectureApiService */],
-        __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["g" /* NavParams */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4_ionic_angular__["b" /* App */],
+        __WEBPACK_IMPORTED_MODULE_5__providers_utility__["a" /* Utility */],
+        __WEBPACK_IMPORTED_MODULE_2__services_lectureapi_service__["a" /* LectureApiService */],
+        __WEBPACK_IMPORTED_MODULE_0__services_user_service__["a" /* UserService */],
+        __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["g" /* NavParams */]])
 ], Dashboard);
 
 //# sourceMappingURL=dashboard.js.map
@@ -348,9 +357,55 @@ Dashboard = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(45);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var API_URL = 'http://localhost:8080/api';
+var UserService = (function () {
+    function UserService(http) {
+        this.http = http;
+    }
+    UserService.prototype.getUsers = function () {
+        return this.http.get(API_URL + '/users')
+            .map(function (response) { return response.json(); });
+    };
+    UserService.prototype.getUser = function (userId) {
+        return this.http.get(API_URL + '/user/' + userId)
+            .map(function (response) { return response.json(); });
+    };
+    UserService.prototype.getUserByEmail = function (userEmail) {
+        return this.http.get(API_URL + '/user/email/' + userEmail)
+            .map(function (response) { return response.json(); });
+    };
+    return UserService;
+}());
+UserService = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]])
+], UserService);
+
+//# sourceMappingURL=user.service.js.map
+
+/***/ }),
+
+/***/ 240:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Manga; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__model_manga__ = __webpack_require__(316);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__scan_scan__ = __webpack_require__(240);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__model_manga__ = __webpack_require__(317);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__scan_scan__ = __webpack_require__(241);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_lectureapi_service__ = __webpack_require__(80);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(21);
@@ -430,7 +485,7 @@ Manga = __decorate([
 
 /***/ }),
 
-/***/ 240:
+/***/ 241:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -491,13 +546,16 @@ var Scan = Scan_1 = (function () {
         nav.push(Scan_1, item);
     };
     Scan.prototype.sauvegarderManga = function () {
-        this.authService.saveManga(this.user, this.manga);
+        var _this = this;
+        this.authService.saveManga(this.user, this.manga).subscribe(function (item) {
+            _this.item = item;
+        });
     };
     return Scan;
 }());
 Scan = Scan_1 = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["n" /* Component */])({
-        selector: 'page-scan',template:/*ion-inline-start:"/home/Med/Documents/Projet/SpringBoot/Spring boot + Angular/MangasApp/client/src/pages/scan/scan.html"*/'<ion-header>\n    <ion-navbar no-border-bottom>\n        <button ion-button menuToggle>\n            <ion-icon name="menu"></ion-icon>\n        </button>   \n        <ion-title> {{chapitre.title}} </ion-title>\n        <button ion-button icon-right color="light" (click)="sauvegarderManga()">\n            <ion-icon name="bookmark"></ion-icon>\n        </button>\n    </ion-navbar>\n</ion-header>\n \n<ion-content>\n    \n    <ion-slides pager >\n\n        <ion-slide *ngFor="let scan of pages">\n            <img [src]="scan.urlToImage">\n        </ion-slide>\n\n    </ion-slides>\n    \n \n</ion-content>\n \n\n'/*ion-inline-end:"/home/Med/Documents/Projet/SpringBoot/Spring boot + Angular/MangasApp/client/src/pages/scan/scan.html"*/,
+        selector: 'page-scan',template:/*ion-inline-start:"/home/Med/Documents/Projet/SpringBoot/Spring boot + Angular/MangasApp/client/src/pages/scan/scan.html"*/'<ion-header>\n    <ion-navbar no-border-bottom>\n        <button ion-button menuToggle>\n            <ion-icon name="menu"></ion-icon>\n        </button>   \n        <ion-title> {{chapitre.title}} </ion-title>\n        \n        <ion-icon name="bookmark" color="light" style="float : right" (click)="sauvegarderManga()"></ion-icon>\n        \n    </ion-navbar>\n</ion-header>\n \n<ion-content>\n    \n    <ion-slides pager >\n\n        <ion-slide *ngFor="let scan of pages">\n            <img [src]="scan.urlToImage">\n        </ion-slide>\n\n    </ion-slides>\n    \n \n</ion-content>\n \n\n'/*ion-inline-end:"/home/Med/Documents/Projet/SpringBoot/Spring boot + Angular/MangasApp/client/src/pages/scan/scan.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["b" /* App */],
         __WEBPACK_IMPORTED_MODULE_4__providers_utility__["a" /* Utility */],
@@ -512,7 +570,7 @@ var Scan_1;
 
 /***/ }),
 
-/***/ 263:
+/***/ 264:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -554,13 +612,13 @@ HomePage = __decorate([
 
 /***/ }),
 
-/***/ 264:
+/***/ 265:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(265);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(269);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(266);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(270);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -568,7 +626,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 269:
+/***/ 270:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -580,18 +638,18 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__ = __webpack_require__(229);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__ = __webpack_require__(234);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_storage__ = __webpack_require__(235);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_component__ = __webpack_require__(315);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_home_home__ = __webpack_require__(263);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_component__ = __webpack_require__(316);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_home_home__ = __webpack_require__(264);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_authentication_registre_registre__ = __webpack_require__(128);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_authentication_login_login__ = __webpack_require__(237);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_open_open__ = __webpack_require__(236);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_dashboard_dashboard__ = __webpack_require__(238);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_manga_manga__ = __webpack_require__(239);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_scan_scan__ = __webpack_require__(240);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__providers_prov_data__ = __webpack_require__(584);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_manga_manga__ = __webpack_require__(240);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_scan_scan__ = __webpack_require__(241);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__providers_prov_data__ = __webpack_require__(585);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__providers_utility__ = __webpack_require__(81);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__services_lectureapi_service__ = __webpack_require__(80);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__services_user_service__ = __webpack_require__(585);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__services_user_service__ = __webpack_require__(239);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__services_auth_service__ = __webpack_require__(52);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -672,7 +730,7 @@ AppModule = __decorate([
 
 /***/ }),
 
-/***/ 315:
+/***/ 316:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -718,7 +776,7 @@ MyApp = __decorate([
 
 /***/ }),
 
-/***/ 316:
+/***/ 317:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -743,7 +801,7 @@ var MangaModel = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(45);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__ = __webpack_require__(317);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__ = __webpack_require__(318);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__);
@@ -801,10 +859,15 @@ var AuthService = AuthService_1 = (function () {
             .catch(AuthService_1.handleError);
     };
     AuthService.prototype.saveManga = function (user, manga) {
-        return this.http.post(API_URL + '/saveManga', user, manga)
+        return this.http.post(API_URL + '/saveManga/' + user.email, manga)
+            .map(function (response) { return response.json(); });
+    };
+    AuthService.prototype.getCurrentUser = function (user) {
+        return this.http.get(API_URL + '/user/email/' + user.email)
             .map(function (response) { return response.json(); })
-            .map(function (currentUser) { return !__WEBPACK_IMPORTED_MODULE_4__model_user__["a" /* User */].isNull(currentUser); })
-            .catch(AuthService_1.handleError);
+            .map(function (currentUser) {
+            return currentUser;
+        });
     };
     return AuthService;
 }());
@@ -818,7 +881,7 @@ var AuthService_1;
 
 /***/ }),
 
-/***/ 584:
+/***/ 585:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -880,48 +943,6 @@ ProviderData = __decorate([
 ], ProviderData);
 
 //# sourceMappingURL=prov-data.js.map
-
-/***/ }),
-
-/***/ 585:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserService; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(45);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var API_URL = 'http://localhost:8080/api';
-var UserService = (function () {
-    function UserService(http) {
-        this.http = http;
-    }
-    UserService.prototype.getUsers = function () {
-        return this.http.get(API_URL + '/users')
-            .map(function (response) { return response.json(); });
-    };
-    UserService.prototype.getUser = function (userId) {
-        return this.http.get(API_URL + '/user/' + userId)
-            .map(function (response) { return response.json(); });
-    };
-    return UserService;
-}());
-UserService = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]])
-], UserService);
-
-//# sourceMappingURL=user.service.js.map
 
 /***/ }),
 
@@ -1024,5 +1045,5 @@ Utility = __decorate([
 
 /***/ })
 
-},[264]);
+},[265]);
 //# sourceMappingURL=main.js.map
