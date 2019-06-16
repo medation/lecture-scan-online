@@ -1,5 +1,5 @@
 # Mangas lecture en ligne
-> An Ionic - Angular application with a RESTFul webserver based on Spring
+> An Ionic - Angular application with a RESTful webserver based on Spring
 
 <!-- ![](open.png)![](registre.png)![](login.png)![](loading.png)![](mangas.png)![](manga.png)![](scan.png) -->
 
@@ -18,20 +18,16 @@
 Run server:
 
 ```sh
-cd server 
 mvn spring-boot:run
 ```
 Run application:
 
-```sh
-cd client 
-ionic serve --lab --port 8100 (or 4200)
+```sh 
+ionic serve --lab 
 ```
 
 ## Meta
 
 Medation – med.elhachimi.01@gmail.com
-
-``LICENSE - Do any what you want``
 
 [https://github.com/medation]
